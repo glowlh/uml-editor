@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import ComponentSpace from './container/component-space';
+import WorkSpace from './container/work-space';
 import { Wrapper } from './style';
 
 class App extends PureComponent {
@@ -7,6 +8,7 @@ class App extends PureComponent {
     return (
       <Wrapper>
         <ComponentSpace />
+        <WorkSpace />
       </Wrapper>
     );
   }

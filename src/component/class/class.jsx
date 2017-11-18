@@ -7,11 +7,32 @@ import {
 
 class ClassComponent extends PureComponent {
 
+  static propTypes = {
+    id: PropTypes.string,
+    top: PropTypes.number,
+    left: PropTypes.number,
+    title: PropTypes.string,
+    onDrag: PropTypes.func,
+  }
+
+  handleDrag = (event) => {
+    if (this.props.onDrag) {
+      this.props.onDrag({
+        top: event.clientY,
+        left: event.clientX,
+      });
+    }
+  }
+
   render() {
     return (
-      <Wrapper>
+      <Wrapper
+        top={this.props.top}
+        left={this.props.left}
+        onDrag ={this.handleDrag}
+      >
         <Block />
-        <div>Class</div>
+        <div>{this.props.title}</div>
       </Wrapper>
     );
   }

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import components from '../container/component-space/redux/reducer';
+import workspace from '../container/work-space/redux/reducer';
 
 const reducers = combineReducers({
-  components,
+  workspace,
 });
 
 export default reducers;
