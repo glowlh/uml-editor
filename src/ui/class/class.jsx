@@ -15,13 +15,10 @@ class ClassComponent extends PureComponent {
     onDrag: PropTypes.func,
   }
 
-  handleDrag = (event) => {
-    if (this.props.onDrag) {
-      this.props.onDrag({
-        top: event.clientY,
-        left: event.clientX,
-      });
-    }
+  handleDragStart = (event) => {
+    const dataTransfer = event.dataTransfer;
+    dataTransfer.effectAllowed = 'move';
+    dataTransfer.setData('text/plain', this.props.id);
   }
 
   render() {
@@ -29,7 +26,9 @@ class ClassComponent extends PureComponent {
       <Wrapper
         top={this.props.top}
         left={this.props.left}
-        onDrag ={this.handleDrag}
+        draggable={true}
+        onDragStart={this.handleDragStart}
+        innerRef={el => { this.wrapperEl = el }}
       >
         <Block />
         <div>{this.props.title}</div>

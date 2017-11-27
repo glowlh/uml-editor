@@ -1,17 +1,32 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ClassComponent from '../../component/class';
+import ClassComponent from '../ui/class/index';
+import { moveComponent } from './redux/actions';
 import { Main } from './style';
 
 class WorkSpace extends PureComponent {
 
   static propTypes = {
     components: PropTypes.object.isRequired,
+    onMoveComponent: PropTypes.func,
   };
 
-  handleDragComponent = (position) => {
-    console.dir(position);
+  handleDrop = (event) => {
+    const dataTransfer = event.dataTransfer;
+    const id = dataTransfer.getData('text/plain');
+    const offsetLeft = this.wrapperEl.offsetLeft;
+    if (this.props.onMoveComponent) {
+      this.props.onMoveComponent({
+        id,
+        top: event.clientY,
+        left: event.clientX - offsetLeft,
+      });
+    }
+  }
+
+  handleDragOver = (event) => {
+    event.preventDefault();
   }
 
   defineComponents() {
@@ -24,7 +39,6 @@ class WorkSpace extends PureComponent {
           left={components[id].left}
           id={id}
           key={id}
-          onDrag={this.handleDragComponent}
         />
       );
     });
@@ -34,7 +48,11 @@ class WorkSpace extends PureComponent {
     const components = this.defineComponents();
 
     return (
-      <Main>
+      <Main
+        onDrop={this.handleDrop}
+        onDragOver={this.handleDragOver}
+        innerRef={el => this.wrapperEl = el}
+      >
         {components}
       </Main>
     );
@@ -44,5 +62,8 @@ class WorkSpace extends PureComponent {
 export default connect(
   state => ({
     components: state.workspace.components,
-  })
+  }),
+  ({
+    onMoveComponent: moveComponent
+  }),
 )(WorkSpace);

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import workspace from '../container/work-space/redux/reducer';
+import workspace from '../workspace/redux/reducer';
 
 const reducers = combineReducers({
   workspace,

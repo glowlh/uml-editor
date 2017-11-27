@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import ComponentSpace from './container/component-space';
-import WorkSpace from './container/work-space';
+import ComponentSpace from './sidebar';
+import WorkSpace from './workspace';
 import { Wrapper } from './style';
 
 class App extends PureComponent {

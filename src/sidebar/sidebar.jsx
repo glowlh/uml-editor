@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ClassComponent from '../../component/class';
-import { addComponent } from '../work-space/redux/actions';
+import ClassComponent from '../ui/class/index';
+import { addComponent } from '../workspace/redux/actions';
 import {
   Aside,
   Add,
 } from './style';
 
-class ComponentSpace extends PureComponent {
+class Sidebar extends PureComponent {
 
   static propTypes = {
     workComponents: PropTypes.object.isRequired,
@@ -37,4 +37,4 @@ export default connect(
     workComponents: state.workspace.components,
   }),
   { onAddComponentToWorkspace: addComponent },
-)(ComponentSpace);
+)(Sidebar);
