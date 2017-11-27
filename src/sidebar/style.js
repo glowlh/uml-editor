@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Aside = styled.div`
+export const Aside = styled.aside`
   width: 30%;
   height: 100%;
   border-right: 1px solid rgba(0, 0, 0, .1);

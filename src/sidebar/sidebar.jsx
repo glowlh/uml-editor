@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ClassComponent from '../ui/class/index';
+import ClassViewComponent from '../ui/class/view';
 import { addComponent } from '../workspace/redux/actions';
 import {
   Aside,
@@ -12,12 +12,12 @@ class Sidebar extends PureComponent {
 
   static propTypes = {
     workComponents: PropTypes.object.isRequired,
-    onAddComponentToWorkspace: PropTypes.func.isRequired,
+    onAddComponent: PropTypes.func.isRequired,
   };
 
   handleClickAdd = () => {
     const id = Object.keys(this.props.workComponents).length;
-    this.props.onAddComponentToWorkspace({ id });
+    this.props.onAddComponent({ id });
   }
 
   render() {
@@ -26,7 +26,7 @@ class Sidebar extends PureComponent {
         <Add onClick={this.handleClickAdd}>
           add
         </Add>
-        <ClassComponent title="Class" />
+        <ClassViewComponent title="Class" />
       </Aside>
     );
   }
@@ -36,5 +36,5 @@ export default connect(
   state => ({
     workComponents: state.workspace.components,
   }),
-  { onAddComponentToWorkspace: addComponent },
+  { onAddComponent: addComponent },
 )(Sidebar);

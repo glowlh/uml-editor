@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const Block = styled.div`
   display: inline-flex;
   width: 80px;
-  height: 40px;
+  min-height: 40px;
   border: 2px solid #000;
   background-color: #fff;
   margin-bottom: 5px;

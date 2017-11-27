@@ -2,40 +2,35 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import {
   Block,
-  Wrapper,
-} from './style';
+} from '../style';
+import { Wrapper } from './style';
 
-class ClassComponent extends PureComponent {
+class ClassViewComponent extends PureComponent {
 
   static propTypes = {
-    id: PropTypes.string,
-    top: PropTypes.number,
-    left: PropTypes.number,
-    onDrag: PropTypes.func,
+    title: PropTypes.string,
   };
 
   handleDragStart = (event) => {
     const dataTransfer = event.dataTransfer;
     dataTransfer.effectAllowed = 'move';
 
-    const data = JSON.stringify( {
-      move: { id: this.props.id },
-    });
+    const data = JSON.stringify({ add: true });
     dataTransfer.setData('text/plain', data);
   }
 
   render() {
     return (
       <Wrapper
-        top={this.props.top}
-        left={this.props.left}
         draggable={true}
         onDragStart={this.handleDragStart}
+        innerRef={el => { this.wrapperEl = el }}
       >
         <Block />
+        <i>{this.props.title}</i>
       </Wrapper>
     );
   }
 }
 
-export default ClassComponent;
+export default ClassViewComponent;
