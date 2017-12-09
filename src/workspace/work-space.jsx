@@ -16,6 +16,10 @@ class WorkSpace extends PureComponent {
     onAddComponent: PropTypes.func,
   };
 
+  get componentIds() {
+    return Object.keys(this.props.components);
+  }
+
   handleDrop = (event) => {
     const dataTransfer = event.dataTransfer;
     const data = JSON.parse(dataTransfer.getData('text/plain'));
@@ -30,7 +34,7 @@ class WorkSpace extends PureComponent {
         });
       }
     } else if (data.add) {
-      const id = Object.keys(this.props.components).length;
+      const id = this.componentIds.length;
       this.props.onAddComponent({ id });
     }
   }
@@ -43,7 +47,7 @@ class WorkSpace extends PureComponent {
   defineComponents() {
     const components = this.props.components;
 
-    return Object.keys(components).map((id) => {
+    return this.componentIds.map((id) => {
       return (
         <ClassComponent
           top={components[id].top}
