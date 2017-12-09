@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Block,
-  Wrapper,
-} from './style';
+import s from './class.style';
 
 class ClassComponent extends PureComponent {
 
@@ -26,14 +23,14 @@ class ClassComponent extends PureComponent {
 
   render() {
     return (
-      <Wrapper
+      <s.Wrapper
         top={this.props.top}
         left={this.props.left}
         draggable={true}
         onDragStart={this.handleDragStart}
       >
-        <Block />
-      </Wrapper>
+        <s.Block />
+      </s.Wrapper>
     );
   }
 }

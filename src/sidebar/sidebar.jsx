@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ClassViewComponent from '../ui/class/view';
 import { addComponent } from '../workspace/redux/actions';
-import {
-  Aside,
-  Add,
-} from './style';
+import s from './sidebar.style';
 
 class Sidebar extends PureComponent {
 
@@ -22,12 +19,12 @@ class Sidebar extends PureComponent {
 
   render() {
     return (
-      <Aside>
-        <Add onClick={this.handleClickAdd}>
+      <s.Aside>
+        <s.Add onClick={this.handleClickAdd}>
           add
-        </Add>
+        </s.Add>
         <ClassViewComponent title="Class" />
-      </Aside>
+      </s.Aside>
     );
   }
 }

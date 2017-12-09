@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Aside = styled.aside`
+const Style = {};
+
+Style.Aside = styled.aside`
   width: 30%;
   height: 100%;
   border-right: 1px solid rgba(0, 0, 0, .1);
@@ -8,7 +10,7 @@ export const Aside = styled.aside`
   position: relative;
 `;
 
-export const Add = styled.div`
+Style.Add = styled.div`
   position: absolute;
   top: 15px;
   right: 15px;
@@ -18,3 +20,5 @@ export const Add = styled.div`
     color: #ff981e;
   }
 `;
+
+export default Style;

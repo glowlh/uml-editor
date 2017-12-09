@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Block,
-} from '../style';
-import { Wrapper } from './style';
+import sC from '../class.style';
+import sV from './view.style';
 
 class ClassViewComponent extends PureComponent {
 
@@ -21,14 +19,14 @@ class ClassViewComponent extends PureComponent {
 
   render() {
     return (
-      <Wrapper
+      <sV.Wrapper
         draggable={true}
         onDragStart={this.handleDragStart}
         innerRef={el => { this.wrapperEl = el }}
       >
-        <Block />
+        <sC.Block />
         <i>{this.props.title}</i>
-      </Wrapper>
+      </sV.Wrapper>
     );
   }
 }

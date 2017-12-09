@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+const Style = {};
+
+Style.Wrapper = styled.div`
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +12,7 @@ export const Wrapper = styled.div`
   position: absolute;
 `;
 
-export const Block = styled.div`
+Style.Block = styled.div`
   display: inline-flex;
   width: 80px;
   min-height: 40px;
@@ -18,3 +20,5 @@ export const Block = styled.div`
   background-color: #fff;
   margin-bottom: 5px;
 `;
+
+export default Style;

@@ -1,15 +1,16 @@
 import React, { PureComponent } from 'react';
 import ComponentSpace from './sidebar';
 import WorkSpace from './workspace';
-import { Wrapper } from './style';
+import s from './style';
+import './style.reset';
 
 class App extends PureComponent {
   render() {
     return (
-      <Wrapper>
+      <s.Wrapper>
         <ComponentSpace />
         <WorkSpace />
-      </Wrapper>
+      </s.Wrapper>
     );
   }
 }

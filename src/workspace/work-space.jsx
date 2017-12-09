@@ -6,7 +6,7 @@ import {
   moveComponent,
   addComponent,
 } from './redux/actions';
-import { Main } from './style';
+import s from './work-space.style';
 
 class WorkSpace extends PureComponent {
 
@@ -59,13 +59,13 @@ class WorkSpace extends PureComponent {
     const components = this.defineComponents();
 
     return (
-      <Main
+      <s.Main
         onDrop={this.handleDrop}
         onDragOver={this.handleDragOver}
         innerRef={el => this.wrapperEl = el}
       >
         {components}
-      </Main>
+      </s.Main>
     );
   }
 }
